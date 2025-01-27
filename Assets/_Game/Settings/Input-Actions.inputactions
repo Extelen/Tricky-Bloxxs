@@ -1,0 +1,60 @@
+{
+    "name": "Input-Actions",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "2e1d39c3-05e9-45c1-a8e3-a5430e67bf87",
+            "actions": [],
+            "bindings": []
+        },
+        {
+            "name": "UI",
+            "id": "b3e0a8f7-abdc-466a-bff7-94c73923226b",
+            "actions": [
+                {
+                    "name": "Skip Logo Showcase",
+                    "type": "Button",
+                    "id": "dc7d28c4-b433-46e6-b625-eb024f581cfb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Next Dialogue",
+                    "type": "Button",
+                    "id": "10bc2566-3188-4900-859f-64e73980807d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "495de9bf-fb74-4bfe-9eee-eda26da8e327",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip Logo Showcase",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76dff056-31d5-4f99-a7a0-713801c39289",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next Dialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
