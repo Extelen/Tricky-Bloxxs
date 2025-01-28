@@ -7,7 +7,6 @@ using DialogueSystem;
 public enum DialogueType
 {
     Common = 0,
-    Board = 1,
 }
 
 public class DialogueManager : Singleton<DialogueManager>

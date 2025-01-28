@@ -4,8 +4,50 @@
         {
             "name": "Game",
             "id": "2e1d39c3-05e9-45c1-a8e3-a5430e67bf87",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "Pointer Press",
+                    "type": "Button",
+                    "id": "3f5a7099-f157-4a5e-9ff0-27b33505d8fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pointer Position",
+                    "type": "Value",
+                    "id": "fa1c7308-5dfe-4a3a-ab64-9be8a3fea4d4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "86ecaf9c-e11f-4205-90bb-1fc4bc42e574",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pointer Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b8e850f-4aab-4e1b-9447-4cf1dd0c6a81",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pointer Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         },
         {
             "name": "UI",
