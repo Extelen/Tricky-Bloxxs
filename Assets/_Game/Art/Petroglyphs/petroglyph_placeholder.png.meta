@@ -1,0 +1,466 @@
+fileFormatVersion: 2
+guid: 193da6eddd70e7e46a4f53a193fd52c6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: petroglyph_placeholder_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 428.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f88ecb867ead948b413e64a5e7b4ac
+      internalID: -1665631594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 428.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 441141787bf6e1b47bf6b39a1eb577fd
+      internalID: -1759107727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 428.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46db7bf669af5804792a185c878c60a7
+      internalID: -719665839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 428.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a32ab9cf2624f47a39a5e3c5e386f0
+      internalID: 441159043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 286.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76ba6e4b95f84ba408ce1fe592c83d0b
+      internalID: -1563323749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 286.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0377b247b405b45a08b2763d9b9f12
+      internalID: 1285650435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_6
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 286.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7389cba6ff5aeb2468183f1c74be2d2a
+      internalID: 308111997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_7
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 286.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5a460d0827b79478a710d7f22cbe37
+      internalID: 823526054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c895bec36028104191cc3e7c3e0a0a5
+      internalID: -1088736321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_9
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 144.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc07d1e2800a3a4a93e4abbfec6b560
+      internalID: -1162558704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_10
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 144.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2993eb6fa5e09db4593d8465d2468820
+      internalID: 239041292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_11
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 144.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf6c2ecfb3eb6d24d9c96f7c62c464e7
+      internalID: -849490504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f9c1e6d7f3e954b970ef8b2d636500
+      internalID: 1728750328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 2.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8053da38b99c67e419ca34191d42bc22
+      internalID: 788674655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 2.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc1629f8a613084eb537c077b63161f
+      internalID: 763059118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: petroglyph_placeholder_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 2.25
+        width: 170.25
+        height: 142.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605a8cb7846ab6c4dbf1a2c4a4589ed6
+      internalID: 2041425821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      petroglyph_placeholder_0: -1665631594
+      petroglyph_placeholder_1: -1759107727
+      petroglyph_placeholder_10: 239041292
+      petroglyph_placeholder_11: -849490504
+      petroglyph_placeholder_12: 1728750328
+      petroglyph_placeholder_13: 788674655
+      petroglyph_placeholder_14: 763059118
+      petroglyph_placeholder_15: 2041425821
+      petroglyph_placeholder_2: -719665839
+      petroglyph_placeholder_3: 441159043
+      petroglyph_placeholder_4: -1563323749
+      petroglyph_placeholder_5: 1285650435
+      petroglyph_placeholder_6: 308111997
+      petroglyph_placeholder_7: 823526054
+      petroglyph_placeholder_8: -1088736321
+      petroglyph_placeholder_9: -1162558704
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

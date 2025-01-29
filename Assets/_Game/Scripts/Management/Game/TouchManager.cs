@@ -18,8 +18,9 @@ public class TouchManager : MonoBehaviour
     private bool isTouching;
     private bool isDragging;
 
-    [SerializeField] private float dragThreshold = 0.5f; // Time in seconds
-    [SerializeField] private float swipeThreshold = 50f; // Distance
+    [SerializeField] private float dragThreshold = 0.5f; // Time in seconds, if drag ends before dragThreshold it's considered a tap
+    [SerializeField] private float swipeDistanceThreshold = 50f; // Distance a drag must exceed to be considered a swipe
+    [SerializeField] private float swipeTimeThreshold = 0.5f; // Time in seconds a swipe must be completed in to be considered a swipe
 
     public UnityEvent<Vector2> OnTap;
     public UnityEvent<Vector2> OnDrag; // Vector2 is position relative to the previous frame, not absolute
@@ -64,7 +65,7 @@ public class TouchManager : MonoBehaviour
             {
                 Vector2 touchDelta = currentTouchPosition - previousTouchPosition;
                 OnDrag?.Invoke(touchDelta);
-                Debug.Log("Drag " + touchDelta);
+                //Debug.Log("Drag " + touchDelta);
             }
             else if (touchDuration >= dragThreshold && Vector2.Distance(startTouchPosition, currentTouchPosition) > 0f)
             {
@@ -95,22 +96,22 @@ public class TouchManager : MonoBehaviour
         if (isDragging)
         {
             isDragging = false;
-            return;
+            //return;
         }
 
         currentTouchPosition = touchPositionAction.ReadValue<Vector2>();
 
         // Swipe
-        if (Vector2.Distance(startTouchPosition, currentTouchPosition) >= swipeThreshold)
+        if (Vector2.Distance(startTouchPosition, currentTouchPosition) >= swipeDistanceThreshold && touchDuration <= swipeTimeThreshold)
         {
             OnSwipe?.Invoke(HandleSwipe(startTouchPosition, currentTouchPosition));
-            Debug.Log("Swipe " + startTouchPosition + " " + currentTouchPosition);
+            //Debug.Log("Swipe " + startTouchPosition + " " + currentTouchPosition);
         }
         // Tap
         else if (touchDuration < dragThreshold)
         {
             OnTap?.Invoke(currentTouchPosition);
-            Debug.Log("Tap " + currentTouchPosition);
+            //Debug.Log("Tap " + currentTouchPosition);
         }
     }
 
