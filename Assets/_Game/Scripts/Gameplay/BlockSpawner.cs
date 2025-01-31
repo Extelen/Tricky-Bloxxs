@@ -4,63 +4,69 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform blockHolder;
+    [SerializeField] private GameObject blockPrefab;
+    [SerializeField] private float snapInterval = 0.25f;
     [SerializeField] private float rightHorizontalLimit = 10f;
     [SerializeField] private float leftHorizontalLimit = -10f;
     [SerializeField] private float blockSpawnDelay = 1f;
 
-    private GameObject heldBlock;
-    private bool readyToDrop = false;
+    private Vector3 realPosition;
+    private GameObject activeBlock;
     private List<GameObject> tilesToSpawn = new List<GameObject>();
     private List<GameObject> tilesDone = new List<GameObject>();
 
 
-    public void SpawnBlock()
+    void Start()
     {
-        GameObject spawnedBlock = Instantiate(tilesToSpawn[0], blockHolder.position, Quaternion.identity, blockHolder);
-        spawnedBlock.SetActive(true);
-        spawnedBlock.GetComponent<Rigidbody2D>().isKinematic = true;
-        heldBlock = spawnedBlock;
-        readyToDrop = true;
+        SpawnBlock();
+        realPosition = transform.position;
     }
 
+    public void SpawnBlock()
+    {
+        GameObject spawnedBlock = Instantiate(blockPrefab, transform.position, Quaternion.identity, transform);
+        activeBlock = spawnedBlock;
+        activeBlock.GetComponent<PetroglyphBlock>().OnRigidbodyStopped += OnBlockStoppedMoving;
+        activeBlock.GetComponent<PetroglyphBlock>().OnOutOfBounds += OnBlockStoppedMoving;
+        //spawnedBlock.GetComponent<Rigidbody2D>().isKinematic = true;
+        
+    }
+/*
     public void DropBlock()
     {
-        readyToDrop = false;
         heldBlock.GetComponent<Rigidbody2D>().isKinematic = false;
         heldBlock.transform.SetParent(null);
         heldBlock.GetComponent<PetroglyphBlock>().StartCheckingIfStopped();
         heldBlock.GetComponent<PetroglyphBlock>().OnRigidbodyStopped += OnBlockStoppedMoving;
         heldBlock = null;
-    }
+    }*/
 
     public void RotateHeldBlock()
     {
-        if (heldBlock != null)
+        if (activeBlock != null)
         {
-            heldBlock.transform.Rotate(0, 0, 90);
+            activeBlock.GetComponent<Rigidbody2D>().MoveRotation(activeBlock.transform.rotation.eulerAngles.z + 90);
         }
     }
 
     public void MoveHorizontally(float amount)
     {
-        transform.position += new Vector3(amount, 0, 0);
+        realPosition += new Vector3(amount,0,0) * Time.deltaTime;
+        Vector3 snappedPosition = SnapToInterval(realPosition);
+        transform.position = snappedPosition;
 
         if (transform.position.x > rightHorizontalLimit)
         {
-            transform.position = new Vector3(rightHorizontalLimit, transform.position.y, transform.position.z);
+            realPosition = new Vector3(rightHorizontalLimit, transform.position.y, transform.position.z);
+            //transform.position = new Vector3(rightHorizontalLimit, transform.position.y, transform.position.z);
         }
         else if (transform.position.x < leftHorizontalLimit)
         {
-            transform.position = new Vector3(leftHorizontalLimit, transform.position.y, transform.position.z);
+            realPosition = new Vector3(leftHorizontalLimit, transform.position.y, transform.position.z);
+            //transform.position = new Vector3(leftHorizontalLimit, transform.position.y, transform.position.z);
         }
-    }
 
-
-    public void BlockWasPlaced()
-    {
-        tilesToSpawn.RemoveAt(0);
-        tilesDone.Add(heldBlock);
+        
     }
 
     private IEnumerator SpawnBlockWithDelay(float delay)
@@ -69,23 +75,24 @@ public class BlockSpawner : MonoBehaviour
         SpawnBlock();
     }
 
+    Vector3 SnapToInterval(Vector3 position)
+    {
+        position.x = Mathf.Round(position.x / snapInterval) * snapInterval;
+        //position.y = Mathf.Round(position.y / snapInterval) * snapInterval;
+        //position.z = Mathf.Round(position.z / snapInterval) * snapInterval;
+        return position;
+    }
+
     #region Events
     // Connected through events
     public void OnTouchDrag(Vector2 delta)
     {
-        MoveHorizontally(delta.x*Time.deltaTime);
+        MoveHorizontally(delta.x);
     }
 
     public void OnTouchSwipe(TouchManager.SwipeDirection direction)
     {
-        if (direction == TouchManager.SwipeDirection.Down)
-        {
-            if (readyToDrop)
-            {
-                DropBlock();
-                //StartCoroutine(SpawnBlockWithDelay(blockSpawnDelay));
-            }
-        }
+        Debug.Log("Swipe: " + direction);
     }
 
     public void OnTouchTap(Vector2 position)
@@ -101,9 +108,9 @@ public class BlockSpawner : MonoBehaviour
 
     public void OnBlockStoppedMoving()
     {
-        // Should probably check if the block is in a valid position first
-        // The block should handle it.
-        BlockWasPlaced();
+        activeBlock.GetComponent<PetroglyphBlock>().OnRigidbodyStopped -= OnBlockStoppedMoving;
+        activeBlock.GetComponent<PetroglyphBlock>().OnOutOfBounds -= OnBlockStoppedMoving;
+        activeBlock = null;
         StartCoroutine(SpawnBlockWithDelay(blockSpawnDelay));
     }
     #endregion

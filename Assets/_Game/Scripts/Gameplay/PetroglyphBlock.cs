@@ -5,15 +5,36 @@ using UnityEngine;
 
 public class PetroglyphBlock : MonoBehaviour
 {
-    public Rigidbody2D rb;
     public float stopThreshold = 0.01f;
     public float checkFrequency = 0.1f;
+    public float fallSpeed = 2f;
 
     public event Action OnRigidbodyStopped;
+    public event Action OnOutOfBounds;
+
+    private Rigidbody2D rb;
+    private BoxCollider2D boxCollider;
+    private Vector2 defaultCollisionSize;
+    
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        defaultCollisionSize = boxCollider.size;
+        //boxCollider.size = new Vector2(0.95f, 0.95f);
+
+        Debug.Log("drag: " + rb.drag + " angular drag: " + rb.angularDrag);
+        rb.angularDrag = 2f; 
+        rb.drag = 1f;
+    }
+
+    void FixedUpdate()
+    {
+        if (rb.isKinematic)
+        {
+            rb.position += Vector2.down * fallSpeed * Time.fixedDeltaTime;
+        }
     }
 
     public void StartCheckingIfStopped()
@@ -27,7 +48,25 @@ public class PetroglyphBlock : MonoBehaviour
         {
             CancelInvoke(nameof(CheckIfStopped));
             OnRigidbodyStopped?.Invoke();
-            Debug.Log("Block stopped moving");
         }
+    }
+
+    public void TriggerOutOfBounds()
+    {
+        OnOutOfBounds?.Invoke();
+        Destroy(gameObject);
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        rb.isKinematic = false;
+        transform.parent = null;
+        StartCheckingIfStopped();
+        //boxCollider.size = defaultCollisionSize;
+        rb.angularDrag = 3f; 
+        rb.drag = 2f;
+        rb.mass = 0.5f;
+        rb.gravityScale = 0.9f;
     }
 }
