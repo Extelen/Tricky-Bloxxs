@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject blockPrefab;
+    
+    [SerializeField] private List<GameObject> blockPrefabs;
     [SerializeField] private float snapInterval = 0.25f;
     [SerializeField] private float rightHorizontalLimit = 10f;
     [SerializeField] private float leftHorizontalLimit = -10f;
@@ -12,6 +13,8 @@ public class BlockSpawner : MonoBehaviour
 
     private Vector3 realPosition;
     private GameObject activeBlock;
+    private PetroglyphBlock activeBlockComponent;
+    private Rigidbody2D activeBlockRigidbody;
     private List<GameObject> tilesToSpawn = new List<GameObject>();
     private List<GameObject> tilesDone = new List<GameObject>();
 
@@ -24,11 +27,16 @@ public class BlockSpawner : MonoBehaviour
 
     public void SpawnBlock()
     {
-        GameObject spawnedBlock = Instantiate(blockPrefab, transform.position, Quaternion.identity, transform);
-        activeBlock = spawnedBlock;
-        activeBlock.GetComponent<PetroglyphBlock>().OnRigidbodyStopped += OnBlockStoppedMoving;
-        activeBlock.GetComponent<PetroglyphBlock>().OnOutOfBounds += OnBlockStoppedMoving;
-        //spawnedBlock.GetComponent<Rigidbody2D>().isKinematic = true;
+        activeBlock = Instantiate(
+            blockPrefabs[Random.Range(0, blockPrefabs.Count)], 
+            transform.position, 
+            Quaternion.identity, 
+            transform
+        );
+
+        SetActiveBlock(activeBlock);
+        activeBlockComponent.OnRigidbodyStopped += OnBlockStoppedMoving;
+        activeBlockComponent.OnOutOfBounds += OnBlockStoppedMoving;
         
     }
 /*
@@ -41,12 +49,24 @@ public class BlockSpawner : MonoBehaviour
         heldBlock = null;
     }*/
 
-    public void RotateHeldBlock()
+    private void SetActiveBlock(GameObject newBlock)
     {
-        if (activeBlock != null)
+        activeBlock = newBlock;
+        activeBlockComponent = activeBlock ? activeBlock.GetComponent<PetroglyphBlock>() : null;
+        activeBlockRigidbody = activeBlock ? activeBlock.GetComponent<Rigidbody2D>() : null;
+    }
+
+    public void TryRotateActiveBlock()
+    {
+
+        if (activeBlock == null) return;
+
+        var rb = activeBlock.GetComponent<Rigidbody2D>();
+        if (rb.isKinematic == true)
         {
-            activeBlock.GetComponent<Rigidbody2D>().MoveRotation(activeBlock.transform.rotation.eulerAngles.z + 90);
+            rb.MoveRotation(activeBlock.transform.rotation.eulerAngles.z + 90);
         }
+
     }
 
     public void MoveHorizontally(float amount)
@@ -88,16 +108,18 @@ public class BlockSpawner : MonoBehaviour
     public void OnTouchDrag(Vector2 delta)
     {
         MoveHorizontally(delta.x);
+        
+        // speed block up by delta.y ?
     }
 
     public void OnTouchSwipe(TouchManager.SwipeDirection direction)
     {
-        Debug.Log("Swipe: " + direction);
+
     }
 
     public void OnTouchTap(Vector2 position)
     {
-        RotateHeldBlock();
+        TryRotateActiveBlock();
     }
 
     public void OnGenerationFinished(List<GameObject> tiles)
@@ -108,9 +130,10 @@ public class BlockSpawner : MonoBehaviour
 
     public void OnBlockStoppedMoving()
     {
-        activeBlock.GetComponent<PetroglyphBlock>().OnRigidbodyStopped -= OnBlockStoppedMoving;
-        activeBlock.GetComponent<PetroglyphBlock>().OnOutOfBounds -= OnBlockStoppedMoving;
-        activeBlock = null;
+        activeBlockComponent.OnRigidbodyStopped -= OnBlockStoppedMoving;
+        activeBlockComponent.OnOutOfBounds -= OnBlockStoppedMoving;
+        
+        SetActiveBlock(null);
         StartCoroutine(SpawnBlockWithDelay(blockSpawnDelay));
     }
     #endregion

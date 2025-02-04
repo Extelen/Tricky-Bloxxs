@@ -14,17 +14,16 @@ public class PetroglyphBlock : MonoBehaviour
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
-    private Vector2 defaultCollisionSize;
+    //private Vector2 defaultCollisionSize;
     
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
-        defaultCollisionSize = boxCollider.size;
+        //defaultCollisionSize = boxCollider.size;
         //boxCollider.size = new Vector2(0.95f, 0.95f);
 
-        Debug.Log("drag: " + rb.drag + " angular drag: " + rb.angularDrag);
         rb.angularDrag = 2f; 
         rb.drag = 1f;
     }
@@ -64,7 +63,7 @@ public class PetroglyphBlock : MonoBehaviour
         transform.parent = null;
         StartCheckingIfStopped();
         //boxCollider.size = defaultCollisionSize;
-        rb.angularDrag = 3f; 
+        rb.angularDrag = 2f; 
         rb.drag = 2f;
         rb.mass = 0.5f;
         rb.gravityScale = 0.9f;

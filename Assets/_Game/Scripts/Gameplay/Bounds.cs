@@ -6,9 +6,11 @@ public class Bounds : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Block"))
+        Debug.Log("Triggered");
+        
+        if (other.attachedRigidbody.CompareTag("Block"))
         {
-            other.gameObject.GetComponent<PetroglyphBlock>().TriggerOutOfBounds();
+            other.attachedRigidbody.gameObject.GetComponent<PetroglyphBlock>().TriggerOutOfBounds();
             Debug.Log("Block out of bounds");
         }
     }
